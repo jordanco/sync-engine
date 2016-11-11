@@ -61,8 +61,9 @@ class QueueClient(object):
     def __init__(self, zone):
         self.zone = zone
         redis_host = config['ACCOUNT_QUEUE_REDIS_HOSTNAME']
+        redis_port = config['ACCOUNT_QUEUE_REDIS_PORT']
         redis_db = config['ACCOUNT_QUEUE_REDIS_DB']
-        self.redis = StrictRedis(host=redis_host, db=redis_db,
+        self.redis = StrictRedis(host=redis_host, db=redis_db, port=redis_port,
                                  socket_connect_timeout=SOCKET_CONNECT_TIMEOUT,
                                  socket_timeout=SOCKET_TIMEOUT)
 
